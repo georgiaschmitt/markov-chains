@@ -11,7 +11,6 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
     contents = open(file_path).read()
-    file.close()
     return contents
 
 
@@ -66,8 +65,8 @@ def make_text(chains):
 
     while nextword is not None:
         key = (key[1], nextword)
-        words.append(word)
-        word = choice(chains[key])
+        words.append(nextword)
+        nextword = choice(chains[key])
 
 
     return ' '.join(words)
